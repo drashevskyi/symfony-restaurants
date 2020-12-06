@@ -14,7 +14,7 @@ Comments:
 1. Registration not required, also still implemented. Initial user fixture is created;
 2. KnpPaginatorBundle is used in order not to load all rows on a single page;
 3. Filtering is implemented from KnpPaginatorBundle, although sf form would also work;
-4. `App\Service\RestaurantService` created to declare `saveRestaurant` method that will add and update Restaurants, so the same code is not repeated in different Controller actions. Method is tested in `App\Tests\Controller\RestaurantControllerTest` with passign different `$formData`;
+4. `App\Service\RestaurantService` created to declare `saveRestaurant` method that will add and update Restaurants, so the same code is not repeated in different Controller actions. Method is tested in `App\Tests\Controller\RestaurantControllerTest` with passing different `$formData`;
 5. API endpoint to get restaurant tables with auth layer is accessed by `/api/restaurant/table/{restaurant}?apikey=your_api_key`:
   - auth layer implemented with `App\Security\TokenAuthenticator` using api firewall and api_user_provider, which is referring to apiToken field of User entity
   - apiToken is generated while registering the user in `App\Controller\RegistrationController`
