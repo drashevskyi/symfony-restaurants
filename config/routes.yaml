@@ -1,0 +1,48 @@
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+    
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+    
+index_restaurant:
+    path: /
+    controller: App\Controller\RestaurantController::index   
+
+restaurant:
+    path: /restaurant
+    controller: App\Controller\RestaurantController::index
+    
+restaurant_add:
+    path: /restaurant/add
+    controller: App\Controller\RestaurantController::add
+    
+restaurant_update:
+    path: /restaurant/update/{restaurant}
+    controller: App\Controller\RestaurantController::update
+    
+restaurant_delete: 
+    path: /restaurant/delete/{restaurant}
+    controller: App\Controller\RestaurantController::delete
+    
+restaurant_table:  
+    path: /restaurant/table/{restaurant}
+    controller: App\Controller\RestaurantTableController::index
+    
+restaurant_table_add:
+    path: /restaurant/table/{restaurant}/add
+    controller: App\Controller\RestaurantTableController::add
+    
+restaurant_table_update:
+    path: /restaurant/table/update/{restaurantTable}
+    controller: App\Controller\RestaurantTableController::update
+    
+restaurant_table_delete:
+    path: /restaurant/table/delete/{restaurantTable}
+    controller: App\Controller\RestaurantTableController::delete
+    
+api_restaurant_table:   
+    path: /api/restaurant/table/{restaurant}
+    controller: App\Controller\ApiRestaurantTableController::index
+    methods: [GET]

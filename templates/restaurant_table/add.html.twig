@@ -1,0 +1,22 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}{{ 'Add table'|trans }}{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning mt-2">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+
+<h4>{{ 'Add table'|trans }}</h4>
+<div>{{ 'Restaurant'|trans }} ID: {{ restaurant.id }}</div>
+<div>{{ 'Title'|trans }}: {{ restaurant.title }}</div>
+<div class="col-sm-2">
+    {{ form(form) }}
+</div>
+
+{% endblock %}

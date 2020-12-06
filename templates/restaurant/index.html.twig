@@ -1,0 +1,72 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}{{ 'Restaurants'|trans }}{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success mt-2">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning mt-2">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    {% if pagination is not empty %}
+        <div class="mt-2 col-sm-4">{{ knp_pagination_filter(pagination, {'restaurant.title':''}) }}</div>
+        <div class="row">
+            <div class="col-sm-10">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>{{ 'Title'|trans }}</th>
+                            <th>{{ 'Photo'|trans }}</th>
+                            <th>{{ 'Tables'|trans }}</th>
+                            <th>{{ 'Active Tables Count'|trans }}</th>
+                            <th>{{ 'Status'|trans }}</th>
+                            <th>{{ 'Actions'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for restaurant in pagination %}
+                            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                                <td>{{ restaurant.id }}</td>
+                                <td>{{ restaurant.title }}</td>
+                                <td>
+                                    {% if restaurant.photo is not null %}
+                                        <img src="{{ asset('uploads/images/' ~ restaurant.photo) }}" class="img-rounded"/ width="200">
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ path('restaurant_table', {restaurant: restaurant.id}) }}" class="btn btn-outline-info" role="button">{{ 'View'|trans }}</a>
+                                </td>
+                                <td>{{ restaurant.count }}</td>
+                                <td>{{ ('restaurant-status'~restaurant.status)|trans }}</td>
+                                <td>
+                                    <a href="{{ path('restaurant_update', {restaurant: restaurant.id}) }}" class="btn btn-info" role="button">
+                                        {{ 'Update'|trans }}
+                                    </a>
+                                    <a href="{{ path('restaurant_delete', {restaurant: restaurant.id}) }}" class="btn btn-danger" role="button">{{ 'Delete'|trans }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>{{ 'No restaurants'|trans }}.</p>
+    {% endif %}
+{% endblock %}

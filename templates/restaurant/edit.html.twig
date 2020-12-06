@@ -1,0 +1,17 @@
+{% extends 'main.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert alert-warning mt-2">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+
+<div class="col-sm-4">
+    {{ form(form) }}
+</div>
+
+{% endblock %}

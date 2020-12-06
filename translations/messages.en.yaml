@@ -1,0 +1,31 @@
+No restaurants: No restaurants created yet
+No tables: No tables created yet
+Delete: Delete
+Update: Update
+Tables: Tables
+Actions: Actions
+Photo: Photo
+Title: Title
+Restaurants: Restaurants
+Restaurant: Restaurant
+Capacity: Capacity
+Number: Number
+Restaurant created: New restaurant has been created.
+Restaurant updated: Restaurant has been updated.
+Restaurant deleted: Restaurant has been deleted.
+Active Tables Count: Active Tables Count
+View: View
+Status: Status
+restaurant-status1: Active
+restaurant-status: Inactive
+restaurant-table-status1: Active
+restaurant-table-status: Inactive
+Add table: Add table
+max-active-tables: Maximum active tables
+restaurant has active tables: There are active tables in restaurant ID:
+Home: Home
+Add restaurant: Add restaurant
+Wrong restaurant ID: Wrong restaurant ID
+max active tables reached: Maximum of active tables is reached for restaurant ID:
+table created: Table created
+Logout: Logout
