@@ -54,7 +54,7 @@ class Restaurant
     /**
      * @var ArrayCollection $tables
      *
-     * @ORM\OneToMany(targetEntity="RestaurantTable", mappedBy="restaurantId")
+     * @ORM\OneToMany(targetEntity="RestaurantTable", mappedBy="restaurantId", cascade={"remove"})
      */
     private $tables;
     
