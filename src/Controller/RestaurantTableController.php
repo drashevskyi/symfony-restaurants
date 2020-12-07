@@ -122,7 +122,7 @@ class RestaurantTableController extends AbstractController
                     ->countRestaurantActiveTables($restaurant);
                 //if after update number of active tables will be bigger than set for restaurant
                 if (($restaurantActiveTablesCount + 1) > $restaurant->getMaxActiveTables()) {
-                    $this->addFlash("warning", "Maximum active tables for restaurant ID: ".$restaurant->getId()." reached.");
+                    $this->addFlash("warning", $this->translator->trans('max active tables reached')." ".$restaurant->getId());
 
                     return $this->redirectToRoute('restaurant_table_update', ['restaurantTable' => $restaurantTable->getId()]);
                 }
